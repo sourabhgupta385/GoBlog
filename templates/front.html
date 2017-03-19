@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+     <link type="text/css" rel="stylesheet" href="/static/main.css" /> 
+     <link href="/static/cssblog/bootstrap.min.css" rel="stylesheet">
+     <link href="/static/cssblog/blog-home.css" rel="stylesheet">
+     <title>GoBlog</title>
+	</head>
+
+	<body>
+		<br>
+		<a href="/blog" class="main-title" style="padding-left:150px">
+          All Blogs
+		</a> 
+		<!-- Navigation -->
+			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container">
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							{% if user %}
+								<li>
+									<a href="#">{{user.name}}</a>
+								</li>
+								<li>
+									<a href="/blog/newpost">Post A New Blog</a>
+								</li>
+								<li>
+									<a href="/">Log Out</a>
+								</li>
+							{% else %}
+								<li>
+									<a class="login-link" href="/login">Log In</a>
+								</li>
+								<li>
+									<a class="login-link" href="/signup">Sign Up</a>
+								</li> 
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+			</nav>
+	
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8" style="padding-left:150px">	
+	                {% for p in posts %}
+                        {{ p.render() | safe }}
+                        <br><br>
+                    {% endfor %}
+				</div>   
+			</div>
+		</div>	
+	</body>
+</html>

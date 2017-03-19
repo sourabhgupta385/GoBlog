@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link type="text/css" rel="stylesheet" href="/static/main.css" />
+     <link href="/static/cssblog/bootstrap.min.css" rel="stylesheet">
+     <link href="/static/cssblog/blog-home.css" rel="stylesheet">
+     <title>New Post</title>
+</head>
+
+<style>
+.button {
+  border-radius: 1px;
+  background-color: #990000;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  padding: 0px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+
+<body>
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+				    {% if user %}
+                    <li>
+				     <a href="#">{{user.name}}</a>
+                    </li>
+                    <li>
+                        <a href="/">Log Out</a>
+                    </li>
+					{% else %}
+                    <li>
+					  <a class="login-link" href="/login">Log In</a>
+                    </li>
+					<li>
+                     <a class="login-link" href="/signup">Sign Up</a>
+                    </li> 
+					 {% endif %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+	
+  <h2 style="padding-left:500px">New Blog</h2>
+  <div class="container">
+        <div class="row">
+            <div class="col-md-8" style="padding-left:300px">
+				<form method="post">
+					<label>
+						<div>TITLE</div>
+							<input type="text" name="subject" value="{{subject}}">
+					</label>
+					<label>
+						<div>BLOG</div>
+							<textarea name="content">{{content}}</textarea>
+					</label>
+					<div class="error">{{error}}</div>
+					<div style="padding-left:175px">
+						<button class="button"><span>Post Blog </span></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Log In</title>
+
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/animate.css">
+	
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+
+ <style type="text/css">
+    .error {color: red}
+ </style>
+
+<body>
+  <form method="post">
+	<div class="container">
+		<div class="top">
+			<h1 id="title" class="hidden"><span id="logo"><span class="brand-heading">GoBlog</span></span></h1>
+		</div>
+		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Log In</h2>
+			</div>
+			<label for="username">Username</label>
+			<br/>
+			<input type="text" id="username" name="username" value="{{username}}">
+			<br/>
+			<label for="password">Password</label>
+			<br/>
+			<input type="password" id="password" name="password" value="">
+			<br/>
+			<div class="error" style="padding-bottom:10px">
+                {{error}}
+            </div>
+			<button type="submit">Sign In</button>
+			<br/>
+			<br>
+            <label>Don't Have A Account</label><a href="/signup">Create Here</a><br>
+		    <label><center>Or</center></label>
+		    <label></label><a href="/">Go To Home Page</a>
+		</div>
+	</div>
+  </form>
+</body>
+</html>
